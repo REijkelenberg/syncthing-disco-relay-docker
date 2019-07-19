@@ -1,5 +1,8 @@
 # syncthing-relay-discovery-logging
 
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/reijkelenberg/syncthing-disco-relay.svg)
+![License Mozilla Public License 2.0](https://img.shields.io/badge/license-MPLv2-blue.svg)
+
 ## This is a fork
 This repo is forked from [seancrites/syncthing-relay-discovery-logging](https://github.com/seancrites/syncthing-relay-discovery-logging), which is a fork of [t4skforce/syncthing-relay-discovery](https://github.com/t4skforce/syncthing-relay-discovery). I made some small changes to suit my own need.
 
@@ -16,10 +19,6 @@ The remainder of this README has been left unchanged, except for the badges.
 Docker Container for the global relay server for the [http://syncthing.net/](http://syncthing.net/) project. I build the container because ther is no official one. This build is listening on the gihub project of the relay server and gets updated whenever there is a code change. [relaysrv GitHub repo](https://github.com/syncthing/relaysrv) and [dicosrv GitHub repo](https://github.com/syncthing/discosrv). The container is intendet for people who like to roll their own private syncthing "cloud".
 
 The files for this container can be found at my [GitHub repo](https://github.com/reijkelenberg/syncthing-disco-relay-docker)
-
-![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/reijkelenberg/syncthing-disco-relay.svg)
-![License Mozilla Public License 2.0](https://img.shields.io/badge/license-MPLv2-blue.svg)
-
 
 # About the Container
 
