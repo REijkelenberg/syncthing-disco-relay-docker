@@ -15,7 +15,7 @@ The remainder of this README has been left unchanged, except for the badges.
 # Readme
 Docker Container for the global relay server for the [http://syncthing.net/](http://syncthing.net/) project. I build the container because ther is no official one. This build is listening on the gihub project of the relay server and gets updated whenever there is a code change. [relaysrv GitHub repo](https://github.com/syncthing/relaysrv) and [dicosrv GitHub repo](https://github.com/syncthing/discosrv). The container is intendet for people who like to roll their own private syncthing "cloud".
 
-The files for this container can be found at my [GitHub repo](https://github.com/seancrites/syncthing-relay-discovery-logging)
+The files for this container can be found at my [GitHub repo](https://github.com/reijkelenberg/syncthing-disco-relay-docker)
 
 ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/reijkelenberg/syncthing-disco-relay.svg)
 ![License Mozilla Public License 2.0](https://img.shields.io/badge/license-MPLv2-blue.svg)
@@ -23,19 +23,19 @@ The files for this container can be found at my [GitHub repo](https://github.com
 
 # About the Container
 
-This build is based on t4skforce's [syncthing-relay-discovery](https://github.com/t4skforce/syncthing-relay-discovery) docker image and installs the latests successful build of the syncthing relay server, discovery server and enables logging of both.
+This build is based on t4skforce's [syncthing-relay-discovery](https://github.com/reijkelenberg/syncthing-disco-relay-docker) docker image and installs the latests successful build of the syncthing relay server, discovery server and enables logging of both.
 
 # How to use this image
 
-`docker run --name syncthing-relay -d -p 22067:22067 --restart=always seancrites/syncthing-relay-discovery-logging:latest`
+`docker run --name syncthing-relay -d -p 22067:22067 --restart=always reijkelenberg/syncthing-disco-relay:latest`
 
 This will store the certificates and all of the data in `/home/syncthing/`. You will probably want to make at least the certificate folder a persistent volume (recommended):
 
-`docker run --name syncthing-relay -d -p 22067:22067 -v /your/home:/home/syncthing/certs --restart=always seancrites/syncthing-relay-discovery-logging:latest`
+`docker run --name syncthing-relay -d -p 22067:22067 -v /your/home:/home/syncthing/certs --restart=always reijkelenberg/syncthing-disco-relay:latest`
 
 If you already have certificates generated and want to use them and protect the folder from being changed by the docker images use the following command:
 
-`docker run --name syncthing-relay -d -p 22067:22067 -v /your/home:/home/syncthing/certs:ro --restart=always seancrites/syncthing-relay-discovery-logging:latest`
+`docker run --name syncthing-relay -d -p 22067:22067 -v /your/home:/home/syncthing/certs:ro --restart=always reijkelenberg/syncthing-disco-relay:latest`
 
 Creating cert directory and setting permissions (docker process is required to have access):
 ```bash
@@ -47,17 +47,17 @@ chown -R 1000:1000 /your/home/certs
 
 There are several configuarion options available. The options are configurable via environment variables (docker default):
 
-Example enabling debug mode:
+Example disabling debug mode (which is enabled by default):
 ```bash
-export RELAY_OPTS='-debug'
-export DISCO_OPTS='-debug'
-docker run --name syncthing-relay-discovery -d -p 22067:22067 -p 22026:22026 --restart=always seancrites/syncthing-relay-discovery-logging:latest
+export RELAY_OPTS=''
+export DISCO_OPTS=''
+docker run --name syncthing-relay-discovery -d -p 22067:22067 -p 22026:22026 --restart=always reijkelenberg/syncthing-disco-relay:latest
 ```
 
 or
 
 ```bash
-docker run --name syncthing-relay-discovery -d -p 22067:22067 -p 22026:22026 -e RELAY_OPTS='-debug' -e DISCO_OPTS='-debug' --restart=always seancrites/syncthing-relay-discovery-logging:latest
+docker run --name syncthing-relay-discovery -d -p 22067:22067 -p 22026:22026 -e RELAY_OPTS='' -e DISCO_OPTS='' --restart=always reijkelenberg/syncthing-disco-relay:latest
 ```
 
 ## Options
