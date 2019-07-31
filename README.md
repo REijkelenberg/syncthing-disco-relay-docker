@@ -4,7 +4,7 @@
 ![License Mozilla Public License 2.0](https://img.shields.io/badge/license-MPLv2-blue.svg)
 
 ## This is a fork
-This repo is forked from [seancrites/syncthing-relay-discovery-logging](https://github.com/seancrites/syncthing-relay-discovery-logging), which is a fork of [t4skforce/syncthing-relay-discovery](https://github.com/t4skforce/syncthing-relay-discovery). I made some small changes to suit my own need.
+This repo is forked from [seancrites/syncthing-relay-discovery-logging](https://github.com/seancrites/syncthing-relay-discovery-logging), which is a fork of [t4skforce/syncthing-relay-discovery](https://github.com/t4skforce/syncthing-relay-discovery). I made some small changes that suit my own needs.
 
 This repo contains two dockerfiles: `Dockerfile.private` and `Dockerfile.public`. If you want to host a Syncthing discovery and relay server for private use (just for yourself or for a selected number of users), use the former one. If you want to host a public instance to be added to the 'official' Syncthing server list, use `Dockerfile.public`.
 
